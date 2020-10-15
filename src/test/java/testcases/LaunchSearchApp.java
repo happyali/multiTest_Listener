@@ -22,7 +22,7 @@ public class LaunchSearchApp extends BaseClass {
 		if(BrowserName.equalsIgnoreCase("chrome")) {
 			Assert.assertEquals(12, 13);
 		} else {
-			Assert.assertEquals(12, 12);
+			Assert.assertEquals(12, 14);
 		}
 	}
 

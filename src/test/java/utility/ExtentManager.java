@@ -1,7 +1,7 @@
 package utility;
 
 import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
 public class ExtentManager {
@@ -10,7 +10,7 @@ public class ExtentManager {
 
 	public static ExtentReports createInstance(String fileName) {
 		
-		ExtentHtmlReporter extent = new ExtentHtmlReporter(fileName);
+		ExtentSparkReporter extent= new ExtentSparkReporter(fileName);
         report = new ExtentReports();
         report.attachReporter(extent);
 

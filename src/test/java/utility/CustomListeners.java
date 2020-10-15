@@ -3,13 +3,14 @@ package utility;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
+import org.testng.Reporter;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 
 public class CustomListeners implements ITestListener {
 	
-	static String fileName = System.getProperty("user.dir") + "/Reports/test_"+ Helper.getCurrentDateTime() + ".html";
+	static String fileName = System.getProperty("user.dir") + "/Reports/test"+ Helper.getCurrentDateTime() + ".html";
 
 	private static ExtentReports extent = ExtentManager.createInstance(fileName);
 	public static ExtentTest test;
@@ -22,11 +23,12 @@ public class CustomListeners implements ITestListener {
 	}
 
 	public void onTestSuccess(ITestResult result) {
-//		test.pass("Test Case : " + result.getName().toUpperCase() + " PASSED");
 		report.get().pass("Test Case : " + result.getName().toUpperCase() + " PASSED");
 	}
 
 	public void onTestFailure(ITestResult result) {
+		Reporter.log("In OnTestFailure :", true);
+		
 		report.get().fail("Test Case : " + result.getName().toUpperCase() + " FAILED");
 	}
 	
