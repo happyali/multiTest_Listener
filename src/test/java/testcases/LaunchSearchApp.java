@@ -19,8 +19,11 @@ public class LaunchSearchApp extends BaseClass {
     	driver.get("https://www.google.com");
 		//logger.pass("TEST PASSED");
 		Reporter.log("Google Title :"+driver.getTitle(), true);
-
-		Assert.assertEquals(12, 13);
+		if(BrowserName.equalsIgnoreCase("chrome")) {
+			Assert.assertEquals(12, 13);
+		} else {
+			Assert.assertEquals(12, 12);
+		}
 	}
 
 }

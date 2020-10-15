@@ -25,6 +25,7 @@ public class BaseClass {
 	public ConfigurationDataProvider config;
 	public ExtentReports report;
 	public ExtentTest logger;
+	public String BrowserName;
 
 	@BeforeSuite
 	public void setUpSuite() {
@@ -51,6 +52,8 @@ public class BaseClass {
 		report = new ExtentReports();
 		report.attachReporter(extent);
 		*/	
+		
+		BrowserName = browser;
 		
 		driver = BrowserFactory.startApplication(driver, browser, config.getFromConfig("testUrl"));
 		System.out.println("driver :" + driver);
