@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.FileHandler;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -21,7 +22,7 @@ public class Helper {
 	
 		String screenshotPath=System.getProperty("user.dir")+"/Screenshots/FreeCRM_"+getCurrentDateTime()+".png";
 		try {
-			FileHandler.copy(src, new File(screenshotPath));
+			FileUtils.copyFile(src, new File(screenshotPath));
 		} catch (IOException e) {
 			System.out.println("Not able to capture screenshot "+e.getMessage());
 		}
