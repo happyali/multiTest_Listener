@@ -12,7 +12,7 @@ public class LaunchSearchApp extends BaseClass {
 	
 	@Test
 	
-	public void googlePage() {
+	public void LaunchGoogle() {
 		//logger=report.createTest("Google");
     	//logger.info("Login Successful");
     	
@@ -20,9 +20,9 @@ public class LaunchSearchApp extends BaseClass {
 		//logger.pass("TEST PASSED");
 		Reporter.log("Google Title :"+driver.getTitle(), true);
 		if(BrowserName.equalsIgnoreCase("chrome")) {
-			Assert.assertEquals(12, 13);
+			Assert.assertEquals(12, 12);
 		} else {
-			Assert.assertEquals(12, 14);
+			Assert.assertEquals(12, 13);
 		}
 	}
 

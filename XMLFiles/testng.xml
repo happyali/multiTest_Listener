@@ -6,6 +6,7 @@
 		<classes>
   			<class name="testcases.LaunchSocialApp" /> 
   	 		<class name="testcases.LaunchSearchApp" />
+  	 		<class name="testcases.LaunchAirways" />
 	 	</classes>
 	</test>
 	 	<test name="MF-Test" thread-count="5">
@@ -13,6 +14,7 @@
 		<classes>
   			<class name="testcases.LaunchSocialApp" /> 
   	 		<class name="testcases.LaunchSearchApp" />
+  	 		<class name="testcases.LaunchAirways" />
 	 	</classes>
 	</test>
 </suite> 

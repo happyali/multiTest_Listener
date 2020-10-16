@@ -1,8 +1,12 @@
 package pages;
 
+import java.io.IOException;
+
 import org.openqa.selenium.WebDriver;
+import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
@@ -13,18 +17,26 @@ import org.testng.annotations.Parameters;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.MediaEntityBuilder;
 
 import utility.BrowserFactory;
 import utility.ConfigurationDataProvider;
 import utility.ExcelDataProvider;
+import utility.ExtentManager;
+import utility.Helper;
 
 public class BaseClass {
 	public WebDriver driver;
 	public ExcelDataProvider excel;
 	public ConfigurationDataProvider config;
-	public ExtentReports report;
-	public ExtentTest logger;
+//	public ExtentReports report;
+//	public ExtentTest logger;
 	public String BrowserName;
+	
+	static String fileName = System.getProperty("user.dir") + "/Reports/test"+ Helper.getCurrentDateTime() + ".html";
+	public static ExtentReports extent = ExtentManager.createInstance(fileName);
+	public static ExtentTest test;
+	public static ThreadLocal<ExtentTest> report = new ThreadLocal<ExtentTest>();
 
 	@BeforeSuite
 	public void setUpSuite() {
@@ -55,21 +67,21 @@ public class BaseClass {
 		Reporter.log("IN BEFORE METHOD :", true);
 	}
 	
-//	@AfterMethod
-//	public void setAfterMethod(ITestResult result) throws IOException {
-//		Reporter.log("IN AFTER METHOD :", true);
+	@AfterMethod
+	public void setAfterMethod(ITestResult result) throws IOException {
+		Reporter.log("IN AFTER METHOD :", true);
 //    	Helper.captureScreenshot(driver);
-//		if (result.getStatus() == ITestResult.FAILURE) {
-//			logger.fail("Test FAILED",
-//					MediaEntityBuilder.createScreenCaptureFromPath(Helper.captureScreenshot(driver)).build());
+		if (result.getStatus() == ITestResult.FAILURE) {
+			report.get().fail("Test PASSED",
+					MediaEntityBuilder.createScreenCaptureFromPath(Helper.captureScreenshot(driver)).build());
 //		} else if (result.getStatus() == ITestResult.SUCCESS) {
 //			logger.pass("Test PASSED",
 //					MediaEntityBuilder.createScreenCaptureFromPath(Helper.captureScreenshot(driver)).build());
 //		} else if (result.getStatus() == ITestResult.SKIP) {
 //			logger.skip("Test SKIPPED",
 //					MediaEntityBuilder.createScreenCaptureFromPath(Helper.captureScreenshot(driver)).build());
-//		}
-//	} 
+		}
+	} 
 	
 	@AfterClass
 	public void setAfterClass() {
