@@ -70,9 +70,9 @@ public class BaseClass {
 	@AfterMethod
 	public void setAfterMethod(ITestResult result) throws IOException {
 		Reporter.log("IN AFTER METHOD :", true);
-//    	Helper.captureScreenshot(driver);
+
 		if (result.getStatus() == ITestResult.FAILURE) {
-			report.get().fail("Test PASSED",
+			report.get().fail("Test FAILED",
 					MediaEntityBuilder.createScreenCaptureFromPath(Helper.captureScreenshot(driver)).build());
 //		} else if (result.getStatus() == ITestResult.SUCCESS) {
 //			logger.pass("Test PASSED",
@@ -81,6 +81,7 @@ public class BaseClass {
 //			logger.skip("Test SKIPPED",
 //					MediaEntityBuilder.createScreenCaptureFromPath(Helper.captureScreenshot(driver)).build());
 		}
+//    	Helper.captureScreenshot(driver);
 	} 
 	
 	@AfterClass

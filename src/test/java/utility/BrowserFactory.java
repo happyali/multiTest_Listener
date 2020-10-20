@@ -11,6 +11,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BrowserFactory {
 	
+	public static WebDriver driverInstance;
 	public static WebDriver startApplication(WebDriver driver, String browserName, String appURL) {
 
 		switch (browserName.toLowerCase()) {
@@ -30,7 +31,7 @@ public class BrowserFactory {
 			driver = new EdgeDriver();
 			break;
 		default:
-			System.out.println("Looking forward to the Weekend");
+			System.out.println("Browser is not passed from testng.xml");
 		}
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
@@ -45,6 +46,10 @@ public class BrowserFactory {
 	
 	public static void closeBrowser(WebDriver driver) {
 		driver.close();
+	}
+	
+	public static WebDriver getDriver() {
+		return driverInstance;
 	}
 
 }
