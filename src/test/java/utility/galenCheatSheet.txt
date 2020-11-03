@@ -1,0 +1,59 @@
+http://galenframework.com/docs/reference-galen-spec-language-guide/
+
+<body>
+    <div id='search-bar'>
+        <input type='text' name='search' value=''/>
+        <a href='#' class='search-button'>Search</a>
+    </div>
+</body>
+Now lets try out all available locators in Galen spec for the example above
+
+@objects
+    search_panel            id      search-bar
+    search_panel_input      xpath   //div[@id='search-bar']/input[@type='text']
+    search_panel_button     css     #search-bar a
+
+===================================================================
+    
+
+@objects
+    comments            #comments
+    article-content     div.article
+
+= Main section =
+    @on mobile, tablet 
+        comments:
+            width 300px 
+            inside screen 10 to 30px top right 
+            near article-content > 10px right 
+
+    @on desktop
+        comments:
+            width ~ 100% of screen/width 
+            below article-content > 20px 
+===================================================================
+@objects
+    menu-item-*   css  #menu li
+    header-logo   id   logo
+    button-login  xpath //button[@id='login']  
+
+= Menu =
+    @forEach [ menu-item-* ] as itemName, next as nextItem
+        ${itemName}:
+            left-of ${nextItem} 10px 
+
+    header-logo:
+        image file imgs/header-logo.png, error 4% 
+            inside: screen 0px top
+            centered horizontally inside: screen 1px
+            height: ~70px
+            height: > 20px
+            above: login-button 10 to 50px 
+            inside: welcome-block ~30px left
+            text is: login
+
+    button-login:
+        color-scheme 5% #ffefd0, 87 to 90% #ae32ef 
+        inside: header 5 to 15px top, 0 to 10px left
+        near: header-text 5 to 30px left
+===================================================================
