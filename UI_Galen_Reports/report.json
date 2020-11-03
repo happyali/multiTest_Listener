@@ -1,0 +1,45 @@
+{
+  "tests" : [ {
+    "name" : "Ebay:Home Page | multiTest",
+    "startedAt" : 1604382001480,
+    "endedAt" : 1604382001480,
+    "failed" : false,
+    "statistic" : {
+      "passed" : 10,
+      "errors" : 0,
+      "warnings" : 0,
+      "total" : 10
+    },
+    "testId" : "1-ebay-home-page-multitest",
+    "duration" : 0,
+    "failed" : false
+  }, {
+    "name" : "Ebay:Home Page | large",
+    "startedAt" : 1604382022070,
+    "endedAt" : 1604382022070,
+    "failed" : true,
+    "statistic" : {
+      "passed" : 3,
+      "errors" : 1,
+      "warnings" : 0,
+      "total" : 4
+    },
+    "testId" : "2-ebay-home-page-large",
+    "duration" : 0,
+    "failed" : true
+  }, {
+    "name" : "Ebay:Home Page | small",
+    "startedAt" : 1604382034595,
+    "endedAt" : 1604382034595,
+    "failed" : true,
+    "statistic" : {
+      "passed" : 5,
+      "errors" : 1,
+      "warnings" : 0,
+      "total" : 6
+    },
+    "testId" : "3-ebay-home-page-small",
+    "duration" : 0,
+    "failed" : true
+  } ]
+}

@@ -1,0 +1,159 @@
+{
+  "testId" : "1-ebay-home-page-multitest",
+  "name" : "Ebay:Home Page | multiTest",
+  "report" : {
+    "nodes" : [ {
+      "name" : "Ebay: Homepage | Desktop",
+      "status" : "info",
+      "time" : 1604382009568,
+      "includedTags" : [ "Desktop_Large" ],
+      "excludedTags" : [ ],
+      "sections" : [ {
+        "name" : "Page: Home page",
+        "place" : {
+          "filePath" : "gspec_resources/ebay_multi.gspec",
+          "lineNumber" : 8
+        },
+        "objects" : [ {
+          "name" : "carousel_container",
+          "specs" : [ {
+            "status" : "info",
+            "place" : {
+              "filePath" : "gspec_resources/ebay_multi.gspec",
+              "lineNumber" : 12
+            },
+            "name" : "height 346px",
+            "highlight" : [ "carousel_container" ]
+          }, {
+            "status" : "info",
+            "place" : {
+              "filePath" : "gspec_resources/ebay_multi.gspec",
+              "lineNumber" : 13
+            },
+            "name" : "width 1267px",
+            "highlight" : [ "carousel_container" ]
+          } ]
+        }, {
+          "name" : "category1",
+          "specs" : [ {
+            "status" : "info",
+            "place" : {
+              "filePath" : "gspec_resources/ebay_multi.gspec",
+              "lineNumber" : 16
+            },
+            "name" : "above category2",
+            "highlight" : [ "category1", "category2" ]
+          } ]
+        }, {
+          "name" : "category2",
+          "specs" : [ {
+            "status" : "info",
+            "place" : {
+              "filePath" : "gspec_resources/ebay_multi.gspec",
+              "lineNumber" : 19
+            },
+            "name" : "below category1",
+            "highlight" : [ "category2", "category1" ]
+          } ]
+        } ]
+      } ],
+      "objects" : {
+        "category2" : {
+          "area" : [ 32, 1467, 1203, 252 ]
+        },
+        "category1" : {
+          "area" : [ 32, 1151, 1203, 252 ]
+        },
+        "carousel_container" : {
+          "area" : [ 0, 174, 1267, 346 ]
+        }
+      },
+      "screenshot" : "layout-1-screenshot.png",
+      "type" : "layout"
+    }, {
+      "name" : "Ebay: Homepage | Android Mobile",
+      "status" : "info",
+      "time" : 1604382013793,
+      "includedTags" : [ "Desktop_Small" ],
+      "excludedTags" : [ ],
+      "sections" : [ {
+        "name" : "Page: Home page",
+        "place" : {
+          "filePath" : "gspec_resources/ebay_multi.gspec",
+          "lineNumber" : 8
+        },
+        "objects" : [ {
+          "name" : "carousel_container",
+          "specs" : [ {
+            "status" : "info",
+            "place" : {
+              "filePath" : "gspec_resources/ebay_multi.gspec",
+              "lineNumber" : 24
+            },
+            "name" : "height 330 to 450 px",
+            "highlight" : [ "carousel_container" ]
+          }, {
+            "status" : "info",
+            "place" : {
+              "filePath" : "gspec_resources/ebay_multi.gspec",
+              "lineNumber" : 25
+            },
+            "name" : "width 919px",
+            "highlight" : [ "carousel_container" ]
+          } ]
+        }, {
+          "name" : "category1",
+          "specs" : [ {
+            "status" : "info",
+            "place" : {
+              "filePath" : "gspec_resources/ebay_multi.gspec",
+              "lineNumber" : 28
+            },
+            "name" : "above category2",
+            "highlight" : [ "category1", "category2" ]
+          } ]
+        }, {
+          "name" : "category2",
+          "specs" : [ {
+            "status" : "info",
+            "place" : {
+              "filePath" : "gspec_resources/ebay_multi.gspec",
+              "lineNumber" : 31
+            },
+            "name" : "height 347px",
+            "highlight" : [ "category2" ]
+          }, {
+            "status" : "info",
+            "place" : {
+              "filePath" : "gspec_resources/ebay_multi.gspec",
+              "lineNumber" : 32
+            },
+            "name" : "width 919px",
+            "highlight" : [ "category2" ]
+          }, {
+            "status" : "info",
+            "place" : {
+              "filePath" : "gspec_resources/ebay_multi.gspec",
+              "lineNumber" : 33
+            },
+            "name" : "below category1",
+            "highlight" : [ "category2", "category1" ]
+          } ]
+        } ]
+      } ],
+      "objects" : {
+        "category2" : {
+          "area" : [ 0, 1355, 919, 347 ]
+        },
+        "category1" : {
+          "area" : [ 0, 944, 919, 347 ]
+        },
+        "carousel_container" : {
+          "area" : [ 0, 144, 919, 346 ]
+        }
+      },
+      "screenshot" : "layout-2-screenshot.png",
+      "type" : "layout"
+    } ]
+  }
+}

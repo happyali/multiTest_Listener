@@ -1,0 +1,76 @@
+{
+  "testId" : "2-ebay-home-page-large",
+  "name" : "Ebay:Home Page | large",
+  "report" : {
+    "nodes" : [ {
+      "name" : "Ebay: Homepage | Android Tab",
+      "status" : "error",
+      "time" : 1604382026937,
+      "includedTags" : [ "Desktop_Large" ],
+      "excludedTags" : [ ],
+      "sections" : [ {
+        "name" : "Page: Home page",
+        "place" : {
+          "filePath" : "gspec_resources/ebay_homepage.gspec",
+          "lineNumber" : 8
+        },
+        "objects" : [ {
+          "name" : "carousel_container",
+          "specs" : [ {
+            "status" : "error",
+            "place" : {
+              "filePath" : "gspec_resources/ebay_homepage.gspec",
+              "lineNumber" : 12
+            },
+            "name" : "height 350px",
+            "errors" : [ "\"carousel_container\" height is 366px instead of 350px" ],
+            "highlight" : [ "carousel_container" ]
+          }, {
+            "status" : "info",
+            "place" : {
+              "filePath" : "gspec_resources/ebay_homepage.gspec",
+              "lineNumber" : 13
+            },
+            "name" : "width 600px",
+            "highlight" : [ "carousel_container" ]
+          } ]
+        }, {
+          "name" : "category1",
+          "specs" : [ {
+            "status" : "info",
+            "place" : {
+              "filePath" : "gspec_resources/ebay_homepage.gspec",
+              "lineNumber" : 16
+            },
+            "name" : "above category2",
+            "highlight" : [ "category1", "category2" ]
+          } ]
+        }, {
+          "name" : "category2",
+          "specs" : [ {
+            "status" : "info",
+            "place" : {
+              "filePath" : "gspec_resources/ebay_homepage.gspec",
+              "lineNumber" : 19
+            },
+            "name" : "below category1",
+            "highlight" : [ "category2", "category1" ]
+          } ]
+        } ]
+      } ],
+      "objects" : {
+        "category2" : {
+          "area" : [ 0, 1521, 600, 339 ]
+        },
+        "category1" : {
+          "area" : [ 0, 1136, 600, 321 ]
+        },
+        "carousel_container" : {
+          "area" : [ 0, 144, 600, 366 ]
+        }
+      },
+      "screenshot" : "layout-3-screenshot.png",
+      "type" : "layout"
+    } ]
+  }
+}

@@ -5,50 +5,45 @@ import org.testng.ITestListener;
 import org.testng.ITestResult;
 import org.testng.Reporter;
 
+import com.galenframework.reports.GalenTestInfo;
+
 import pages.BaseClass;
 
+
 public class CustomListeners extends BaseClass implements ITestListener {
+
+	public void onStart(ITestContext result) {
+	}
 	
 	public void onTestStart(ITestResult result) {
 		test = extent.createTest(result.getName());
-		report.set(test);
+		extentReport.set(test);
+
+//		objSingleGalenTest = GalenTestInfo.fromString(result.getName());
 	}
 
 	public void onTestSuccess(ITestResult result) {
-		report.get().pass("Test Case : " + result.getName().toUpperCase() + " PASSED");
+		extentReport.get().pass("Test Case : " + result.getName().toUpperCase() + " PASSED");
+//		objGalentestsList.add(objSingleGalenTest);
 	}
 
 	public void onTestFailure(ITestResult result) {
-		Reporter.log("In OnTestFailure :", true);
-		
-		report.get().fail("Test Case : " + result.getName().toUpperCase() + " FAILED");
-		report.get().fail(result.getThrowable());
+		Reporter.log("In OnTestFailure :", true);		
+		extentReport.get().fail("Test Case : " + result.getName().toUpperCase() + " FAILED");
+		extentReport.get().fail(result.getThrowable());
+//		objGalentestsList.add(objSingleGalenTest);
 	}
-	
-//	public void onTestFailure(ITestResult result) {
-//		Reporter.log("In OnTestFailure :", true);
-//		
-//		report.get().fail("Test FAILED");
-//		
-//		report.get().fail("Test Case : " + result.getName().toUpperCase() + " FAILED",
-//					MediaEntityBuilder.createScreenCaptureFromPath(Helper.captureScreenshot(BrowserFactory.getDriver())).build());
-//		report.get().fail(result.getThrowable());	
-//		Reporter.log("Report attached");
-//	}
-	
+		
 	public void onTestSkipped(ITestResult result) {
-		report.get().skip("Test Case : " + result.getName().toUpperCase() + " SKIPPED");
+		extentReport.get().skip("Test Case : " + result.getName().toUpperCase() + " SKIPPED");
+//		objGalentestsList.add(objSingleGalenTest);
 	}
 
 	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
 		// TODO
 	}
 
-	public void onStart(ITestContext context) {
-		// TODO 
-	}
-
-	public void onFinish(ITestContext context) {
+	public void onFinish(ITestContext result) {
 		if (extent != null) {
 			extent.flush();
 		}

@@ -1,6 +1,8 @@
 package pages;
 
 import java.io.IOException;
+import java.util.LinkedList;
+import java.util.List;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
@@ -18,6 +20,8 @@ import org.testng.annotations.Parameters;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
+import com.galenframework.reports.GalenTestInfo;
+import com.galenframework.reports.HtmlReportBuilder;
 
 import utility.BrowserFactory;
 import utility.ConfigurationDataProvider;
@@ -36,11 +40,17 @@ public class BaseClass {
 	static String fileName = System.getProperty("user.dir") + "/Reports/test"+ Helper.getCurrentDateTime() + ".html";
 	public static ExtentReports extent = ExtentManager.createInstance(fileName);
 	public static ExtentTest test;
-	public static ThreadLocal<ExtentTest> report = new ThreadLocal<ExtentTest>();
+	public static ThreadLocal<ExtentTest> extentReport = new ThreadLocal<ExtentTest>();
+	public static List<GalenTestInfo> objGalentestsList;
+	public static HtmlReportBuilder htmlReportBuilder;
+	public static GalenTestInfo objSingleGalenTest;
+	
 
 	@BeforeSuite
 	public void setUpSuite() {
 		Reporter.log("IN BEFORE SUITE", true);
+		objGalentestsList = new LinkedList<GalenTestInfo>();
+		htmlReportBuilder = new HtmlReportBuilder();
 	}
 	
 	@BeforeTest
@@ -72,16 +82,15 @@ public class BaseClass {
 		Reporter.log("IN AFTER METHOD :", true);
 
 		if (result.getStatus() == ITestResult.FAILURE) {
-			report.get().fail("Test FAILED",
+			extentReport.get().fail("Test FAILED",
 					MediaEntityBuilder.createScreenCaptureFromPath(Helper.captureScreenshot(driver)).build());
-//		} else if (result.getStatus() == ITestResult.SUCCESS) {
-//			logger.pass("Test PASSED",
-//					MediaEntityBuilder.createScreenCaptureFromPath(Helper.captureScreenshot(driver)).build());
+		} else if (result.getStatus() == ITestResult.SUCCESS) {
+			extentReport.get().pass("Test PASSED",
+					MediaEntityBuilder.createScreenCaptureFromPath(Helper.captureScreenshot(driver)).build());
 //		} else if (result.getStatus() == ITestResult.SKIP) {
-//			logger.skip("Test SKIPPED",
+//			extentReport.get().skip("Test SKIPPED",
 //					MediaEntityBuilder.createScreenCaptureFromPath(Helper.captureScreenshot(driver)).build());
 		}
-//    	Helper.captureScreenshot(driver);
 	} 
 	
 	@AfterClass
@@ -97,7 +106,8 @@ public class BaseClass {
 	}
 	
 	@AfterSuite
-	public void setAfterSuite() {
+	public void setAfterSuite() throws IOException {
 		Reporter.log("IN AFTER SUITE", true);
+        htmlReportBuilder.build(objGalentestsList, "UI_Galen_Reports");
 	}
 }
