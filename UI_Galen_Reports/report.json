@@ -1,22 +1,22 @@
 {
   "tests" : [ {
     "name" : "Ebay:Home Page | multiTest",
-    "startedAt" : 1604382001480,
-    "endedAt" : 1604382001480,
-    "failed" : false,
+    "startedAt" : 1607648898529,
+    "endedAt" : 1607648898529,
+    "failed" : true,
     "statistic" : {
-      "passed" : 10,
-      "errors" : 0,
+      "passed" : 9,
+      "errors" : 1,
       "warnings" : 0,
       "total" : 10
     },
     "testId" : "1-ebay-home-page-multitest",
     "duration" : 0,
-    "failed" : false
+    "failed" : true
   }, {
     "name" : "Ebay:Home Page | large",
-    "startedAt" : 1604382022070,
-    "endedAt" : 1604382022070,
+    "startedAt" : 1607648922162,
+    "endedAt" : 1607648922162,
     "failed" : true,
     "statistic" : {
       "passed" : 3,
@@ -29,12 +29,12 @@
     "failed" : true
   }, {
     "name" : "Ebay:Home Page | small",
-    "startedAt" : 1604382034595,
-    "endedAt" : 1604382034595,
+    "startedAt" : 1607648936261,
+    "endedAt" : 1607648936261,
     "failed" : true,
     "statistic" : {
-      "passed" : 5,
-      "errors" : 1,
+      "passed" : 4,
+      "errors" : 2,
       "warnings" : 0,
       "total" : 6
     },

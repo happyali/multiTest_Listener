@@ -56,4 +56,19 @@ Now lets try out all available locators in Galen spec for the example above
         color-scheme 5% #ffefd0, 87 to 90% #ae32ef 
         inside: header 5 to 15px top, 0 to 10px left
         near: header-text 5 to 30px left
+        inside screen
+        inside screen -1 to 1 px bottom
+    
+    header:
+    	alligned vertically all menu
+    	above menu -1 to 1 px 
+    	centered horizontally inside screen
+    	
+    Menu:
+    	count visible "&menu_items" is > 3
+    	
+    menu-item-1:
+    	left-of menu.item-2 -1 to 1px
+    	
+        
 ===================================================================

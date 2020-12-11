@@ -5,7 +5,7 @@
     "nodes" : [ {
       "name" : "Ebay: Homepage | Android Tab",
       "status" : "error",
-      "time" : 1604382026937,
+      "time" : 1607648928125,
       "includedTags" : [ "Desktop_Large" ],
       "excludedTags" : [ ],
       "sections" : [ {
@@ -60,10 +60,10 @@
       } ],
       "objects" : {
         "category2" : {
-          "area" : [ 0, 1521, 600, 339 ]
+          "area" : [ 0, 1401, 600, 353 ]
         },
         "category1" : {
-          "area" : [ 0, 1136, 600, 321 ]
+          "area" : [ 0, 1017, 600, 321 ]
         },
         "carousel_container" : {
           "area" : [ 0, 144, 600, 366 ]

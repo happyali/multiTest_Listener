@@ -36,7 +36,6 @@ public class GalenLogoTest extends BaseClass {
 
     @Test
     public void homePageLogoTest() throws IOException {
-//    	test=extent.createTest("SWT Homepage | Desktop");
     	driver.get(testUrl);
         driver.manage().window().setSize(new Dimension(browserSizeLargeW, browserSizeLargeH));
 
@@ -45,12 +44,6 @@ public class GalenLogoTest extends BaseClass {
 
 		objSingleGalenTest.getReport().layout(objLayoutReport, "SWT: Logo | Desktop");
 
-//        if (objLayoutReport.errors() > 0)
-//        {
-//        	Reporter.log("Layout test failed for ebay size test small",true);
-//            Assert.fail();
-//        }
-//        Reporter.log("Layout test PASSED for ebay size test small",true);
     }
     
 	@AfterClass
